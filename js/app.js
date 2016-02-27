@@ -50,7 +50,8 @@ app.controller('MainController',
           vm.rNum.push(str);
           console.log(vm.rNum);
         };
-        while(vm.rNum.length < 50){
+
+        while(vm.rNum.length < 30){
           getRandomNumString();
         }
 
