@@ -7,12 +7,24 @@
 }
 
 /* The element to apply the animation to */
-div {
+.animateThis {
     width: 100px;
     height: 100px;
     position: relative;
     background-color: red;
     animation-name: example;
-    animation-duration: 1.3s;
+    animation-duration: 10s;
     animation-iteration-count: infinite;
+}
+
+.blue {
+    color: blue;
+}
+
+.red {
+    color: red;
+}
+
+.green {
+    color: green;
 }

@@ -1,1 +1,68 @@
-<div class="animateThis">AnimateThis</div>
+<style type="text/css" media="screen">
+@keyframes this {
+    0%   {
+      background-color: red;
+      left:{{mainCtrl.rNum[0]}};
+      top:{{mainCtrl.rNum[1]}};
+    }
+    10%   {
+      background-color: blue;
+      left:{{mainCtrl.rNum[2]}};
+      top:{{mainCtrl.rNum[3]}};
+    }
+    20%   {
+      background-color: green;
+      left:{{mainCtrl.rNum[4]}};
+      top:{{mainCtrl.rNum[5]}};
+    }
+    30%   {
+      background-color: orange;
+      left:{{mainCtrl.rNum[6]}};
+      top:{{mainCtrl.rNum[7]}};
+    }
+    40%   {
+      background-color: magenta;
+      left:{{mainCtrl.rNum[8]}};
+      top:{{mainCtrl.rNum[9]}};
+    }
+    50%   {
+      background-color: cyan;
+      left:{{mainCtrl.rNum[10]}};
+      top:{{mainCtrl.rNum[11]}};
+    }
+    60%   {
+      background-color: lightgoldenrodyellow;
+      left:{{mainCtrl.rNum[12]}};
+      top:{{mainCtrl.rNum[13]}};
+    }
+    70%   {
+      background-color: hotpink;
+      left:{{mainCtrl.rNum[14]}};
+      top:{{mainCtrl.rNum[15]}};
+    }
+    80%   {
+      background-color: cadetblue;
+      left:{{mainCtrl.rNum[16]}};
+      top:{{mainCtrl.rNum[17]}};
+    }
+    90%   {
+      background-color: chartreuse;
+      left:{{mainCtrl.rNum[18]}};
+      top:{{mainCtrl.rNum[19]}};
+    }
+    100%   {
+      background-color: chocolate;
+      left:{{mainCtrl.rNum[20]}};
+      top:{{mainCtrl.rNum[21]}};
+    }
+}
+
+.thisDiv {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    animation-name: this;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+</style><div class="thisDiv">{{mainCtrl.todos[0]}}</div>
