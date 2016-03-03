@@ -31,8 +31,8 @@ angular.module('dm.style', [])
 //thanks dean!
 
 app.controller('MainController',
-  [
-    function()
+  ['$interval', '$timeout',
+    function($interval, $timeout)
       {
 
         var vm = this; //aliasing this
@@ -49,34 +49,37 @@ app.controller('MainController',
 
         vm.powerUps = ["slow down", "kill all"]
 
-        var delayTime = Math.floor(Math.random() * 15)
-        vm.delayTimes = delayTime.toString() + "s";
+        vm.delayTime = Math.floor(Math.random() * 15)
+        vm.delayTimes = vm.delayTime + "s";
 
         var getRandomNumString = function(){
-          var x = Math.floor(Math.random() * 700);
-          var str = (x + "px");
-          console.log(str);
-          vm.rNum.push(str);
-          console.log(vm.rNum);
-        };
+          while(vm.rNum.length < 25){
+            var x = Math.floor(Math.random() * 700);
+            vm.rNum.push(x);
+            console.log(vm.rNum);
+          }
+        }();
 
-        while(vm.rNum.length < 25){
-          getRandomNumString();
-        }
 
         //I need to run this function every delayTime seconds so new paths will be made.
         var rebuildRNum = function(){
-          vm.rNum.forEach(function(number){
-            //need a regex to remove "px" from each index, then a method to convert the string into an int.
-            var indexNum = vm.rNum.indexOf(number);
-            number == number.replace(/px/, '');
+          for (var i = vm.rNum.length - 1; i >= 0; i--) {
+            var number = vm.rNum[i];
+            // var voidNum = parseInt(number);
             var x = Math.floor(Math.random() * 500);
-            var newNum = (Math.floor(number + x - Math.sqrt(x)) + "px");
-            vm.rNum.splice(indexNum, 1, newNum);
-          })
+            var newNum = (Math.floor(number + x));
+            vm.rNum.splice(i, 1, newNum);
+          }
+          vm.delayTime = Math.floor(Math.random() * 15);
+          vm.delayTimeMs = (vm.delayTime * 1000)
+          console.log(vm.delayTimeMs);
+          vm.delayTimes = vm.delayTime + "s"
+          delayThis()
         }
 
-        // setTimeout(rebuildRNum(), (delayTime * 1000))
+        var delayThis = function(){
+          $interval(rebuildRNum, vm.delayTimeMs)
+        }
 
 
 
