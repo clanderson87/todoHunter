@@ -49,6 +49,9 @@ app.controller('MainController',
 
         vm.powerUps = ["slow down", "kill all"]
 
+        var delayTime = Math.floor(Math.random() * 15)
+        vm.delayTimes = delayTime.toString() + "s";
+
         var getRandomNumString = function(){
           var x = Math.floor(Math.random() * 700);
           var str = (x + "px");
@@ -57,7 +60,7 @@ app.controller('MainController',
           console.log(vm.rNum);
         };
 
-        while(vm.rNum.length < delayTime){
+        while(vm.rNum.length < 25){
           getRandomNumString();
         }
 
@@ -65,12 +68,15 @@ app.controller('MainController',
         var rebuildRNum = function(){
           vm.rNum.forEach(function(number){
             //need a regex to remove "px" from each index, then a method to convert the string into an int.
-            var x = Math.floor(Math.random() * 250);
+            var indexNum = vm.rNum.indexOf(number);
+            number == number.replace(/px/, '');
+            var x = Math.floor(Math.random() * 500);
             var newNum = (Math.floor(number + x - Math.sqrt(x)) + "px");
-            vm.rNum.splice(0, number);
-            vm.rNum.push(newNum)
+            vm.rNum.splice(indexNum, 1, newNum);
           })
         }
+
+        // setTimeout(rebuildRNum(), (delayTime * 1000))
 
 
 
