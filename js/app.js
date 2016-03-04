@@ -37,8 +37,6 @@ app.controller('MainController',
 
         var vm = this; //aliasing this
 
-        var delayTime = 30
-
         vm.playerName = null; //a string that the user can fill in.
 
         vm.styles = ["blue", "green", "red"]; //the class/id names that will apply to the animated divs
@@ -50,36 +48,40 @@ app.controller('MainController',
         vm.powerUps = ["slow down", "kill all"]
 
         vm.delayTime = Math.floor(Math.random() * 15)
-        vm.delayTimes = vm.delayTime + "s";
+        vm.delayTimeMs = (vm.delayTime * 1000)
 
-        var getRandomNumString = function(){
-          while(vm.rNum.length < 25){
+        vm.getRandomNumString = function(){
             var x = Math.floor(Math.random() * 700);
             vm.rNum.push(x);
             console.log(vm.rNum);
-          }
-        }();
+        };
 
-
-        //I need to run this function every delayTime seconds so new paths will be made.
         var rebuildRNum = function(){
-          for (var i = vm.rNum.length - 1; i >= 0; i--) {
-            var number = vm.rNum[i];
-            // var voidNum = parseInt(number);
-            var x = Math.floor(Math.random() * 500);
-            var newNum = (Math.floor(number + x));
-            vm.rNum.splice(i, 1, newNum);
-          }
+          vm.rNum = [];
+          // for (var i = vm.rNum.length - 1; i >= 0; i--) {
+          //   var number = vm.rNum[i];
+          //   // var voidNum = parseInt(number);
+          //   var x = Math.floor(Math.random() * 500);
+          //   var newNum = (Math.floor(number + x));
+          //   vm.rNum.splice(i, 1, newNum);
+          // }
           vm.delayTime = Math.floor(Math.random() * 15);
           vm.delayTimeMs = (vm.delayTime * 1000)
           console.log(vm.delayTimeMs);
+          console.log(vm.rNum);
           vm.delayTimes = vm.delayTime + "s"
-          delayThis()
+          while(vm.rNum.length < 22){
+            vm.getRandomNumString();
+          };
         }
 
-        var delayThis = function(){
-          $interval(rebuildRNum, vm.delayTimeMs)
+        while(vm.rNum.length < 22){
+          vm.getRandomNumString();
         }
+
+        //I need to run this function every delayTime seconds so new paths will be made.
+
+        $interval(rebuildRNum, vm.delayTimeMs)
 
 
 
