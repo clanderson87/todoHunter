@@ -58,13 +58,6 @@ app.controller('MainController',
 
         var rebuildRNum = function(){
           vm.rNum = [];
-          // for (var i = vm.rNum.length - 1; i >= 0; i--) {
-          //   var number = vm.rNum[i];
-          //   // var voidNum = parseInt(number);
-          //   var x = Math.floor(Math.random() * 500);
-          //   var newNum = (Math.floor(number + x));
-          //   vm.rNum.splice(i, 1, newNum);
-          // }
           vm.delayTime = Math.floor(Math.random() * 15);
           vm.delayTimeMs = (vm.delayTime * 1000)
           console.log(vm.delayTimeMs);
