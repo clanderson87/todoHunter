@@ -65,4 +65,4 @@
     animation-duration: {{mainCtrl.delayTime}}s;
     animation-iteration-count: infinite;
 }
-</style><div class="thisDiv">{{mainCtrl.todos[0] + "px"}}</div>
+</style><div class="thisDiv" ng-click = "mainCtrl.newDiv($index)">{{mainCtrl.todos[0]}}</div>
