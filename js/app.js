@@ -56,6 +56,9 @@ app.controller('MainController',
             console.log(vm.rNum);
         };
 
+        vm.newDiv = function(index){
+
+        };
         var rebuildRNum = function(){
           vm.rNum = [];
           vm.delayTime = Math.floor(Math.random() * 15);
@@ -71,6 +74,7 @@ app.controller('MainController',
         while(vm.rNum.length < 22){
           vm.getRandomNumString();
         }
+
 
         //I need to run this function every delayTime seconds so new paths will be made.
 
