@@ -45,7 +45,7 @@ app.controller('MainController',
 
         vm.todos = ["grocery shopping", "workout", "taxes", "laundry", "meal prep", "go to the post office", "return a library book", "drink heavily", "go to ______'s birthday party", "refill prescription", "call mom", "so and so's funeral", "that tv show I've been putting off", "read something besides buzzfeed", "cancel comcast", "vote for "] //the todos
 
-        vm.powerUps = ["slow down", "kill all"]
+        //vm.powerUps = ["slow down", "kill all"]
 
         vm.delayTime = Math.floor(Math.random() * 15)
         vm.delayTimeMs = (vm.delayTime * 1000)
@@ -74,7 +74,7 @@ app.controller('MainController',
 
         //I need to run this function every delayTime seconds so new paths will be made.
 
-        $interval(rebuildRNum, vm.delayTimeMs)
+  //        $interval(rebuildRNum, vm.delayTimeMs)
 
 
 
