@@ -57,7 +57,7 @@ app.controller('MainController',
         };
 
         vm.newDiv = function(index){
-          return newDiv;
+          vm.toDone.push(vm.todos[index]);
         };
 
         var rebuildRNum = function(){
