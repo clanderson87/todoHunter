@@ -57,8 +57,9 @@ app.controller('MainController',
         };
 
         vm.newDiv = function(index){
-
+          return newDiv;
         };
+
         var rebuildRNum = function(){
           vm.rNum = [];
           vm.delayTime = Math.floor(Math.random() * 15);
