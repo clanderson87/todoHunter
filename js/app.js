@@ -45,6 +45,8 @@ app.controller('MainController',
 
         vm.todos = ["grocery shopping", "workout", "taxes", "laundry", "meal prep", "go to the post office", "return a library book", "drink heavily", "go to ______'s birthday party", "refill prescription", "call mom", "so and so's funeral", "that tv show I've been putting off", "read something besides buzzfeed", "cancel comcast", "vote for "] //the todos
 
+        vm.toDone = [];
+
         //vm.powerUps = ["slow down", "kill all"]
 
         vm.delayTime = Math.floor(Math.random() * 15)
@@ -53,20 +55,21 @@ app.controller('MainController',
         vm.getRandomNumString = function(){
             var x = Math.floor(Math.random() * 700);
             vm.rNum.push(x);
-            console.log(vm.rNum);
+            // console.log(vm.rNum);
         };
 
         vm.newDiv = function(index){
-          vm.toDone.push(vm.todos[index]);
+          console.log(vm.todos[index])
+          var shifty = vm.todos.shift();
+          vm.toDone.push(shifty);
+          console.log(vm.todos);
         };
 
         var rebuildRNum = function(){
           vm.rNum = [];
           vm.delayTime = Math.floor(Math.random() * 15);
-          vm.delayTimeMs = (vm.delayTime * 1000)
-          console.log(vm.delayTimeMs);
-          console.log(vm.rNum);
-          vm.delayTimes = vm.delayTime + "s"
+          vm.delayTimeMs = (vm.delayTime * 1000);
+          vm.delayTimes = vm.delayTime + "s";
           while(vm.rNum.length < 22){
             vm.getRandomNumString();
           };
@@ -79,7 +82,7 @@ app.controller('MainController',
 
         //I need to run this function every delayTime seconds so new paths will be made.
 
-  //        $interval(rebuildRNum, vm.delayTimeMs)
+         $interval(rebuildRNum, vm.delayTimeMs)
 
 
 
