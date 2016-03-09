@@ -59,10 +59,8 @@ app.controller('MainController',
         };
 
         vm.newDiv = function(index){
-          console.log(vm.todos[index])
           var shifty = vm.todos.shift();
           vm.toDone.push(shifty);
-          console.log(vm.todos);
         };
 
         var rebuildRNum = function(){
