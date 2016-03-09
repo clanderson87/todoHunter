@@ -39,8 +39,6 @@ app.controller('MainController',
 
         vm.playerName = null; //a string that the user can fill in.
 
-        vm.styles = ["blue", "green", "red"]; //the class/id names that will apply to the animated divs
-
         vm.rNum = [];
 
         vm.todos = ["grocery shopping", "workout", "taxes", "laundry", "meal prep", "go to the post office", "return a library book", "drink heavily", "go to ______'s birthday party", "refill prescription", "call mom", "so and so's funeral", "that tv show I've been putting off", "read something besides buzzfeed", "cancel comcast", "vote for "] //the todos
@@ -55,7 +53,6 @@ app.controller('MainController',
         vm.getRandomNumString = function(){
             var x = Math.floor(Math.random() * 700);
             vm.rNum.push(x);
-            // console.log(vm.rNum);
         };
 
         vm.newDiv = function(index){
@@ -63,24 +60,40 @@ app.controller('MainController',
           vm.toDone.push(shifty);
         };
 
+
+        var shuffleArray = function(array) {
+          var m = array.length, t, i;
+          // While there remain elements to shuffle
+          while (m) {
+            // Pick a remaining element…
+            i = Math.floor(Math.random() * m--);
+
+            // And swap it with the current element.
+            t = array[m];
+            array[m] = array[i];
+            array[i] = t;
+          }
+          return array;
+        }
+
         var rebuildRNum = function(){
-          vm.rNum = [];
+          //vm.rNum = [];
+          shuffleArray(vm.rNum);
+          shuffleArray(vm.todos);
           vm.delayTime = Math.floor(Math.random() * 15);
           vm.delayTimeMs = (vm.delayTime * 1000);
           vm.delayTimes = vm.delayTime + "s";
-          while(vm.rNum.length < 22){
-            vm.getRandomNumString();
-          };
+          // while(vm.rNum.length < 22){
+          //   vm.getRandomNumString();
+          // };
         }
 
-        while(vm.rNum.length < 22){
+        while(vm.rNum.length < 101){
           vm.getRandomNumString();
         }
 
-
-        //I need to run this function every delayTime seconds so new paths will be made.
-
-         $interval(rebuildRNum, vm.delayTimeMs)
+       $interval(rebuildRNum, vm.delayTimeMs)
+       console.log(vm.rNum)
 
 
 
