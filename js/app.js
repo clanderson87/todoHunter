@@ -63,12 +63,8 @@ app.controller('MainController',
 
         var shuffleArray = function(array) {
           var m = array.length, t, i;
-          // While there remain elements to shuffle
           while (m) {
-            // Pick a remaining element…
             i = Math.floor(Math.random() * m--);
-
-            // And swap it with the current element.
             t = array[m];
             array[m] = array[i];
             array[i] = t;
@@ -77,15 +73,11 @@ app.controller('MainController',
         }
 
         var rebuildRNum = function(){
-          //vm.rNum = [];
           shuffleArray(vm.rNum);
           shuffleArray(vm.todos);
           vm.delayTime = Math.floor(Math.random() * 15);
           vm.delayTimeMs = (vm.delayTime * 1000);
           vm.delayTimes = vm.delayTime + "s";
-          // while(vm.rNum.length < 22){
-          //   vm.getRandomNumString();
-          // };
         }
 
         while(vm.rNum.length < 101){
