@@ -2,7 +2,6 @@ var app = angular.module('todoHunterApp', ['angular.filter', 'ngRoute', 'dm.styl
 
 //Setting Up routes
 app.config(['$routeProvider', function($routeProvider){
-
   //main route
   $routeProvider
     .when('/', {

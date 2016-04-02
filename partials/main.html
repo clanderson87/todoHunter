@@ -59,6 +59,64 @@
     }
 }
 
+@keyframes that {
+    0%   {
+      background-color: red;
+      left:{{mainCtrl.rNum[22]}}px;
+      top:{{mainCtrl.rNum[23]}}px;
+    }
+    10%   {
+      background-color: blue;
+      left:{{mainCtrl.rNum[24]}}px;
+      top:{{mainCtrl.rNum[25]}}px;
+    }
+    20%   {
+      background-color: green;
+      left:{{mainCtrl.rNum[26]}}px;
+      top:{{mainCtrl.rNum[27]}}px;
+    }
+    30%   {
+      background-color: orange;
+      left:{{mainCtrl.rNum[28]}}px;
+      top:{{mainCtrl.rNum[29]}}px;
+    }
+    40%   {
+      background-color: magenta;
+      left:{{mainCtrl.rNum[30]}}px;
+      top:{{mainCtrl.rNum[31]}}px;
+    }
+    50%   {
+      background-color: cyan;
+      left:{{mainCtrl.rNum[32]}}px;
+      top:{{mainCtrl.rNum[33]}}px;
+    }
+    60%   {
+      background-color: lightgoldenrodyellow;
+      left:{{mainCtrl.rNum[34]}}px;
+      top:{{mainCtrl.rNum[35]}}px;
+    }
+    70%   {
+      background-color: hotpink;
+      left:{{mainCtrl.rNum[36]}}px;
+      top:{{mainCtrl.rNum[37]}}px;
+    }
+    80%   {
+      background-color: cadetblue;
+      left:{{mainCtrl.rNum[38]}}px;
+      top:{{mainCtrl.rNum[39]}}px;
+    }
+    90%   {
+      background-color: chartreuse;
+      left:{{mainCtrl.rNum[40]}}px;
+      top:{{mainCtrl.rNum[41]}}px;
+    }
+    100%   {
+      background-color: chocolate;
+      left:{{mainCtrl.rNum[42]}}px;
+      top:{{mainCtrl.rNum[43]}}px;
+    }
+}
+
 .thisDiv {
     width: 150px;
     height: 150px;
@@ -68,7 +126,17 @@
     animation-duration: {{mainCtrl.delayTime}}s;
     animation-iteration-count: infinite;
     text-align: center;
+}
 
+.thatDiv {
+    width: 150px;
+    height: 150px;
+    border-radius: 25%;
+    position: relative;
+    animation-name: that;
+    animation-duration: {{mainCtrl.delayTime}}s;
+    animation-iteration-count: infinite;
+    text-align: center;
 }
 </style>
 
