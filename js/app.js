@@ -56,7 +56,8 @@ app.controller('MainController',
 
         vm.newDiv = function(index){
           var shifty = vm.todos.shift();
-          vm.toDone.push(shifty);
+          vm.toDone.push(shifty)
+          shuffleArray(vm.rNum);
         };
 
 
